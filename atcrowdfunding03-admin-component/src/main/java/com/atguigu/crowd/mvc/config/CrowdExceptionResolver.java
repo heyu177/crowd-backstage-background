@@ -1,5 +1,6 @@
 package com.atguigu.crowd.mvc.config;
 
+import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.util.ResultEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +12,11 @@ import java.io.IOException;
 
 @ControllerAdvice
 public class CrowdExceptionResolver {
+
+    @ExceptionHandler(value = LoginFailedException.class)
+    public void resolveLoginFailedException(LoginFailedException exception, HttpServletResponse response) throws IOException {
+        commonResolve(exception,response);
+    }
 
     @ExceptionHandler(value = NullPointerException.class)
     public void resolveNullpointerException(NullPointerException exception, HttpServletResponse response) throws IOException {
