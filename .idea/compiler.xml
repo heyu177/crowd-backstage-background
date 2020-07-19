@@ -13,6 +13,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="atcrowdfunding02-admin-webui" target="1.5" />
       <module name="atcrowdfunding06-common-reverse" target="1.5" />
     </bytecodeTargetLevel>
   </component>
