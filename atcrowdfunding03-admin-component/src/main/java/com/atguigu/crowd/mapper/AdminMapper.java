@@ -1,4 +1,4 @@
-package com.atguigu.crowd.mappper;
+package com.atguigu.crowd.mapper;
 
 import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.entity.AdminExample;

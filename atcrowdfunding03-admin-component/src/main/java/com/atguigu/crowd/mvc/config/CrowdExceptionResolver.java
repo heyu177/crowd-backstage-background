@@ -2,7 +2,6 @@ package com.atguigu.crowd.mvc.config;
 
 import com.atguigu.crowd.exception.LoginFailedException;
 import com.atguigu.crowd.util.ResultEntity;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -32,6 +31,7 @@ public class CrowdExceptionResolver {
         ResultEntity<Object> resultEntity = ResultEntity.failed(e.getMessage());
         ObjectMapper objectMapper=new ObjectMapper();
         String json = objectMapper.writeValueAsString(resultEntity);
+        response.setContentType("text/json;charset=UTF-8");
         response.getWriter().print(json);
     }
 }

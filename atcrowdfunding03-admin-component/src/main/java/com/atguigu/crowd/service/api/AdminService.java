@@ -4,5 +4,5 @@ import com.atguigu.crowd.entity.Admin;
 
 public interface AdminService {
 
-    public Admin getAdminByLoginAcct(Admin admin);
+    public Admin getAdminByLoginAcct(String loginAcct,String userPswd);
 }
