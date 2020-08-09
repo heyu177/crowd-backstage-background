@@ -24,4 +24,16 @@ public class AdminHandler {
         session.setAttribute("loginAdmin",admin);
         return ResultEntity.successWithoutData();
     }
+
+    @RequestMapping("/getAdminName")
+    public ResultEntity getAdminName(HttpSession session){
+        Admin admin= (Admin) session.getAttribute("loginAdmin");
+        return ResultEntity.successWithData(admin.getUserName());
+    }
+
+    @RequestMapping("/do/logout")
+    public ResultEntity<Object> doLogout(HttpSession session){
+        session.invalidate();
+        return ResultEntity.successWithoutData();
+    }
 }
