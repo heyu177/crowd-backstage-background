@@ -1,5 +1,6 @@
 package com.atguigu.crowd.mvc.handler;
 
+import com.atguigu.crowd.constant.CrowdConstant;
 import com.atguigu.crowd.entity.Admin;
 import com.atguigu.crowd.service.api.AdminService;
 import com.atguigu.crowd.util.ResultEntity;
@@ -21,7 +22,7 @@ public class AdminHandler {
     public ResultEntity<Object> doLogin(@RequestParam("loginAcct") String loginAcct, @RequestParam("userPswd") String userPswd, HttpSession session){
         // 如果账号密码不正确，getAdminByLoginAcct就会抛出异常
         Admin admin = adminService.getAdminByLoginAcct(loginAcct,userPswd);
-        session.setAttribute("loginAdmin",admin);
+        session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN,admin);
         return ResultEntity.successWithoutData();
     }
 
